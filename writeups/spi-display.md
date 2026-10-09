@@ -10,7 +10,7 @@ to convert every frame to RGB565 and shift it out over the bus one byte at
 a time. I called it "a significant piece of work rather than a quick fix"
 and figured that was the end of it.
 
-Dave Stevenson (`6by9`, Raspberry Pi) replied the same day and showed me I
+`6by9` from Raspberry Pi replied the same day and showed me I
 was wrong about the hard part. The hardware decoder's own ISP stage can
 output RGB565 directly — I just had to request that pixel format instead
 of NV12 — and the resulting buffer is still DMA-able memory that an SPI DRM
@@ -22,7 +22,7 @@ the roadmap.
 
 ### Building it — and finding a real kernel bug along the way
 
-Over the following week Dave kept digging into the decoder/ISP side while I
+Over the following week 6by9 kept digging into the decoder/ISP side while I
 built the zeroplay side: requesting RGB565 output from the V4L2 decoder,
 an aspect-fit scaling path for panels with a different aspect ratio than
 the source video, and a `--spi-fill` crop mode for the zero-scaling case.
@@ -37,7 +37,7 @@ ili9341 spi0.0: bad framebuffer width 480, should be >= 320 && <= 320
 
 — which meant cropping a sub-region out of a larger buffer (what
 `--spi-fill` needed) was impossible at the kernel level, not just unbuilt.
-Dave traced it to `mode_config.max_width`/`max_height` being pinned equal
+6by9 traced it to `mode_config.max_width`/`max_height` being pinned equal
 to the panel's minimum, and to the plane-update code silently ignoring the
 source x/y offset entirely. He also flagged that the whole SPI display
 driver area was effectively orphaned upstream — its previous maintainer
@@ -83,9 +83,11 @@ by grepping the whole tree for the shared flush-helper macro. Merged:
 ### Upstreaming it
 
 Both fixes started as downstream patches on Raspberry Pi's kernel fork, but
-Dave pushed for sending them upstream to dri-devel rather than letting them
+6by9 recommended sending them upstream to dri-devel rather than letting them
 live only downstream — patches that never leave a vendor fork accumulate
 maintenance burden over time. The upstream submission went through three
 revisions, with automated review catching real issues in the first two
 rounds; v3 came back clean. It's currently in review with the DRM subsystem
 maintainers cc'd.
+
+TLDR: What started as a speculative issue in my repo turned into kernel patch.
