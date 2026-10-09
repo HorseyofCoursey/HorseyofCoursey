@@ -43,3 +43,20 @@ peripheral for real external stereo DAC output alongside the internal
 speaker. 400+ downloads via M5Launcher.
 
 ---
+
+### Write-ups
+
+**["No, this isn't possible" — until it was](writeups/spi-display.md)** A
+zeroplay feature request I almost turned down, a Raspberry Pi kernel
+engineer showing me why it wasn't impossible after all, and the real
+kernel bugs (a rejected-framebuffer limit, then a heap overflow) that
+turned up along the way to building it — upstreamed to the Linux kernel's
+DRM subsystem.
+
+**[The display that lied about what chip it was](writeups/clone-display-debugging.md)**
+A "known" SPI panel that stayed corrupted no matter what I changed, until
+an independent microcontroller test rig and a controller ID readback
+revealed it wasn't the chip it was sold as — a bitwise-inverted ID next to
+a genuine ST7735S's.
+
+---
