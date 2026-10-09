@@ -1,4 +1,4 @@
-## "No, this isn't possible" — until it was: adding SPI display support to zeroplay
+## "No, this isn't possible", until it was: adding SPI display support to zeroplay
 
 In August 2026, someone opened [an issue on zeroplay](https://github.com/HorseyofCoursey/zeroplay/issues/29)
 asking if it could drive a small SPI TFT panel instead of HDMI. My first
