@@ -1,4 +1,4 @@
-## The display that lied about what chip it was
+## The story of the display that lied about what chip it was:
 
 A 0.96" 160x80 SPI panel for a Pict-O-Vision Video unit was showing a
 corrupted image — a solid band of random-looking static, hard-edged,
