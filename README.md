@@ -1,6 +1,6 @@
 ### Hi, I'm Jonathan. I build embedded Linux systems and firmware.
 
-I like the parts of engineering that don't show up in tutorials: bringing up
+I like the  arcane parts of engineering that don't show up in tutorials: bringing up
 unfamiliar hardware, porting drivers across kernel API changes nobody warned
 you about, and getting real-time media and displays working on devices with
 no CPU, RAM, or desktop environment to spare.
